@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
+import { HttpModule } from '@angular/http';
 
 import { Dto } from '../dto';
 
@@ -11,15 +12,13 @@ import { Dto } from '../dto';
 })
 export class TableComponent implements OnInit {
   public datas: Dto[];
-  private errorMessage: string;
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit() { this.getData(); }
 
   getData() {
-    this.datas = this.searchService.getData();
-    console.log(this.datas);
+    this.searchService.getData().subscribe((val: Dto[]) => this.datas = val, (err: any) => console.log(err), () => console.log(this.datas));
   }
 
 }

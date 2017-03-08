@@ -1,5 +1,5 @@
 export class Dto {
   id: number;
-  zip: string;
+  zip: number;
   address: string;
 }
