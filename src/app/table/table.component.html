@@ -1,0 +1,14 @@
+<table class="table">
+  <thead><tr>
+    <th width="10%">ID</th>
+    <th width="20%">郵便番号</th>
+    <th>住所</th>
+  </tr></thead>
+  <tbody>
+<tr *ngFor="let data of datas">
+      <td>{{data.id}}</td>
+      <td>{{data.zip}}</td>
+      <td>{{data.address}}</td>
+    </tr>
+  </tbody>
+</table>
