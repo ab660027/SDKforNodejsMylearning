@@ -1,14 +1,31 @@
 <table class="table">
-  <thead><tr>
-    <th>ID</th>
-    <th>郵便番号</th>
-    <th>住所</th>
-  </tr></thead>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>郵便番号</th>
+      <th>住所</th>
+    </tr>
+  </thead>
   <tbody>
-<tr *ngFor="let data of datas">
-      <td>{{data.id}}</td>
-      <td>{{data.zip}}</td>
-      <td>{{data.address}}</td>
+    <tr *ngFor="let data of datas; let i=index">
+      <ng-container *ngIf="(page - 1) * per <= i && i < page * per">
+        <td>{{data.id}}</td>
+        <td>{{data.zip}}</td>
+        <td>{{data.address}}</td>
+      </ng-container>
     </tr>
   </tbody>
 </table>
+<ul>
+  <li *ngFor="let p of pager" (click)="onClick(p)">
+    <ng-container *ngIf="p === ' '">
+      <span></span>
+    </ng-container>
+    <ng-container *ngIf="p === page">
+      <span>{{p}}</span>
+    </ng-container>
+    <ng-container *ngIf="p !== page">
+      <a href="javascript:void(0)">{{p}}</a>
+    </ng-container>
+  </li>
+</ul>
