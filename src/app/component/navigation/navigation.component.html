@@ -1,0 +1,7 @@
+<div id="navi">
+	<ul>
+		<li *ngFor="let item of navItem" [class.select]="item.select">
+		 <a href="javascript:void(0)" [class.select]="item.select" (click)="onClick(item)">{{item.navName}}</a>
+		</li>
+	</ul>
+</div>

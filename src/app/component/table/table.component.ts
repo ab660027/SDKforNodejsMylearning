@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from '../search.service';
 import { HttpModule } from '@angular/http';
 
-import { Dto } from '../dto';
+import { Dto } from '../../dto';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
-  providers: [SearchService]
+  providers: []
 })
 export class TableComponent implements OnInit {
   public per: number;
@@ -16,7 +15,7 @@ export class TableComponent implements OnInit {
   public pager: (string | number)[];
   public datas: Dto[];
 
-  constructor(private searchService: SearchService) {
+  constructor() {
     this.per = 5;
     this.page = 1;
     this.pager = [1, 2, 3, 4, 5, 6, '>'];
@@ -25,7 +24,7 @@ export class TableComponent implements OnInit {
   ngOnInit() { this.getData(); }
 
   getData() {
-    this.searchService.getData().subscribe((val: Dto[]) => this.datas = val, (err: any) => console.log(err), () => console.log(this.datas));
+    //this.searchService.getData().subscribe((val: Dto[]) => this.datas = val, (err: any) => console.log(err), () => console.log(this.datas));
   }
 
   onClick(page: string | number) {
