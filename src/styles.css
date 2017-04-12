@@ -23,7 +23,6 @@ header div.date {
 }
 
 #navi {
-  position: absolute;
   float: left;
   padding-right: 30px;
   width: auto;
@@ -49,3 +48,4 @@ header div.date {
 #navi a.select {
   color: coral;
 }
+

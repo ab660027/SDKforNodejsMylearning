@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
-import { SearchService } from './search.service';
+import { AjaxService } from './service/ajax.service'
 
-@Component({
+@Component( {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularMylearning on BluemixMylearning';
+
+  constructor( private ajax: AjaxService ) { }
+  
+  onClick() {
+    //this.ajax.test('GET');
+  }
 }

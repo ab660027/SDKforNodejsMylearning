@@ -6,16 +6,20 @@ import { RouterModule } from '@angular/router';
 
 import { routing } from './app.routes';
 
+import { AjaxService } from './service/ajax.service'
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { NavigationComponent } from './component/navigation/navigation.component';
 
+import { TopComponent }from './view/top/top.component'
 
-@NgModule({
+@NgModule( {
   declarations: [
     AppComponent,
     HeaderComponent,
-    NavigationComponent
+    NavigationComponent,
+    TopComponent
   ],
   imports: [
     BrowserModule,
@@ -24,9 +28,10 @@ import { NavigationComponent } from './component/navigation/navigation.component
     RouterModule,
     routing,
   ],
-  exports:[
+  exports: [
   ],
   providers: [
+    AjaxService
   ],
   bootstrap: [AppComponent]
 })
