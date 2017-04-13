@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { Dto } from './dto';
+import { Dto } from './../dto';
 
 @Injectable()
 export class SearchService {

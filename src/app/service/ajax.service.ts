@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, RequestMethod, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -12,12 +12,15 @@ export class AjaxService {
 
   test( method: string ): Observable<any> {
     const url = '';
+    let METHOD: RequestMethod;
     switch ( method ) {
-      case 'GET': return this._http.get( url ).map( res => res.json() );
-      case 'POST': return this._http.post( url, {}).map( res => res.json() );
-      case 'PUT': return this._http.put( url, {}).map( res => res.json() );
-      case 'DELETE': return this._http.delete( '' ).map( res => res.json() );
-      default: return this._http.head( url );
+      case 'GET': METHOD = RequestMethod.Get; break;
+      case 'POST': METHOD = RequestMethod.Post; break;
+      case 'PUT': METHOD = RequestMethod.Put; break;
+      case 'DELETE': METHOD = RequestMethod.Delete; break;
+      default: METHOD = RequestMethod.Head; break;
     }
+    const requestOptions = new RequestOptions({ headers: new Headers({ 'Method': METHOD }) });
+    return this._http.request(url, requestOptions).map( res => res.json() );
   }
 }
