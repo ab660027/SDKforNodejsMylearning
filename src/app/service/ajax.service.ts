@@ -23,4 +23,8 @@ export class AjaxService {
     const requestOptions = new RequestOptions({ headers: new Headers({ 'Method': METHOD }) });
     return this._http.request(url, requestOptions).map( res => res.json() );
   }
+
+  getPush(delayTime: number = 0) {
+    return this._http.get('http://localhost:9080/push?delay=' + delayTime).map( res => res.json() );
+  }
 }

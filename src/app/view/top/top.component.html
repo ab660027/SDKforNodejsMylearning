@@ -1,8 +1,12 @@
 <app-header></app-header>
 <app-navigation></app-navigation>
 <div id="main">
-	<div>
-		<h2>RxJS test page</h2>
-		<input type="button" (click)="console.log('click!')">
-	</div>
+  <div>
+    <h2>TEST PAGE</h2>
+    <div>
+      <input type="number" [(ngModel)]="delayTime">
+      <input type="button" (click)="onClick()" value="alert test">
+      <span class="error" *ngIf="errMsg">{{errMsg}}</span>
+    </div>
+  </div>
 </div>

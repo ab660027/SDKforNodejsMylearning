@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { routing } from './app.routes';
 
 import { AjaxService } from './service/ajax.service'
+import { WebSocketService } from './service/webSocket.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
@@ -31,7 +32,8 @@ import { TopComponent }from './view/top/top.component'
   exports: [
   ],
   providers: [
-    AjaxService
+    AjaxService,
+    WebSocketService
   ],
   bootstrap: [AppComponent]
 })

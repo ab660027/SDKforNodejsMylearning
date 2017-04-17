@@ -7,6 +7,13 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
 }
 
+.error {
+  font-size: 15px;
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+}
+
 header div {
   background-color: #000;
   color: white;
@@ -29,6 +36,7 @@ header div.date {
   height: 100%;
   border-right: gray;
   border-right-style: solid;
+  margin-right: 30px;
 }
 
 #navi li {
