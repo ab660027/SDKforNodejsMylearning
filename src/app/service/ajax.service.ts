@@ -25,6 +25,6 @@ export class AjaxService {
   }
 
   getPush(delayTime: number = 0) {
-    return this._http.get('http://localhost:9080/push?delay=' + delayTime).map( res => res.json() );
+    return this._http.get('push?delay=' + delayTime).map( res => res.json() );
   }
 }
