@@ -17,7 +17,16 @@ export class TopComponent implements OnInit {
     private _socket: WebSocketService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this._ajax.login()
+    .subscribe(
+      (res) => { }, 
+      (err) => {
+        alert(err);
+        return;
+      }, 
+      () => { });
+  }
   
   onClick() {
     if(this.delayTime === null) {
