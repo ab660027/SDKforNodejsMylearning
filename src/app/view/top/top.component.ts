@@ -38,7 +38,7 @@ export class TopComponent implements OnInit {
         return;
       } else {
         this.errMsg = "";
-        this._ajax.getPush()
+        this._ajax.getPush(this.delayTime)
         .subscribe(
           (res) => {
             this.response = res;
@@ -50,6 +50,7 @@ export class TopComponent implements OnInit {
           () => {
             const endpoint: endpoint = this.response;
             console.log('webSocket endPoint => ' + endpoint.endpoint);
+            console.log(document.cookie);
             this._socket.open(endpoint.endpoint);
           });
       }
