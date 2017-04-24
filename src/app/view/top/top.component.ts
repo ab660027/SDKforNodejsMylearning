@@ -20,12 +20,16 @@ export class TopComponent implements OnInit {
   ngOnInit() {
     this._ajax.login()
     .subscribe(
-      (res) => { }, 
+      (res) => {
+        this.response = res.headers.getAll("set-cookie");
+      }, 
       (err) => {
         alert(err);
         return;
       }, 
-      () => { });
+      () => {
+        console.log(this.response);
+      });
   }
   
   onClick() {
@@ -50,8 +54,8 @@ export class TopComponent implements OnInit {
           () => {
             const endpoint: endpoint = this.response;
             console.log('webSocket endPoint => ' + endpoint.endpoint);
-            console.log(document.cookie);
             this._socket.open(endpoint.endpoint);
+            
           });
       }
     }
