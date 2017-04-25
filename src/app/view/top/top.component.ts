@@ -21,7 +21,7 @@ export class TopComponent implements OnInit {
     this._ajax.login()
     .subscribe(
       (res) => {
-        this.response = res.headers.getAll("set-cookie");
+        this.response = res.headers;
       }, 
       (err) => {
         alert(err);
